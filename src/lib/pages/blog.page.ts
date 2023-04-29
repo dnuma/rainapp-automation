@@ -1,5 +1,6 @@
 import type { Page, Locator } from "@playwright/test";
 import { BasePage } from "./base.page";
+import { UserData } from "@interfaces/userData";
 
 export class BlogPage extends BasePage {
   readonly page: Page;
@@ -19,15 +20,14 @@ export class BlogPage extends BasePage {
     this.formSubmitted = this.page.getByRole('heading', { name: 'Thank You!' });
   }
 
-  /**
-   * Fills out the blog form with the given username, email and option to receive newsletter.
-   * @param {string} username - The username to be entered in the name input field.
-   * @param {string} email - The email to be entered in the email input field.
-   * @param {boolean} isReceiveNews - A flag indicating whether to check the "Receive Newsletter" checkbox or not.
-   */
-  async fillBlogForm(username: string, email: string, isReceiveNews: boolean ) {
-    await this.nameInput.type(username);
-    await this.emailInput.type(email);
+ /**
+ * Fills out the blog form with the given user data and option to receive newsletter.
+ * @param {UserData} user - An object containing the user's name and email to be filled in the form.
+ * @param {boolean} isReceiveNews - A flag indicating whether to check the "Receive Newsletter" checkbox or not.
+ */
+  async fillBlogForm( user: UserData, isReceiveNews: boolean ) {
+    await this.nameInput.type(user.userName);
+    await this.emailInput.type(user.email);
     await this.changeCheckboxCheck(this.receiveNewsletter, isReceiveNews);
     await this.submitButton.click();
   }

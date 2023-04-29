@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { URL_TEST, USERNAME, EMAIL, NAVIGATION, BUTTONS, TITLES } from "@config/constants"
 import { BasePage } from "@pages/base.page";
 import { BlogPage } from "@pages/blog.page";
+import { UserData } from "@interfaces/userData";
 
 // Slow down the test for better visualization
 test.use({launchOptions: {slowMo: 300 }});
@@ -52,17 +53,24 @@ test.describe('Navigate on RainApp website',
      */
     test('Sign up for blog news', async ({ page })  => {
       const blogPage = new BlogPage(page);
-      const fullUserName = `${USERNAME.FIRST_NAME} ${USERNAME.LAST_NAME}`;
       const isReceiveNews = true;
+      const validUser: UserData = {
+        userName: `${USERNAME.FIRST_NAME} ${USERNAME.LAST_NAME}`,
+        email: EMAIL.VALID
+      };
+      const invalidUser: UserData = {
+        userName: `${USERNAME.FIRST_NAME} ${USERNAME.LAST_NAME}`,
+        email: EMAIL.INVALID
+      };      
       
       await blogPage.navBlog.click();
       expect(page).toHaveURL(URL_TEST.BLOG);
 
-      await blogPage.fillBlogForm( fullUserName, EMAIL.VALID, isReceiveNews );
+      await blogPage.fillBlogForm( validUser, isReceiveNews );
       expect.soft( await blogPage.formSubmitted.isVisible(), 'Valid email format' ).toBeTruthy();
-      
+
       await page.reload();
-      await blogPage.fillBlogForm( fullUserName, EMAIL.INVALID, isReceiveNews );
+      await blogPage.fillBlogForm( invalidUser, isReceiveNews );
       expect.soft( await blogPage.formSubmitted.isVisible(), 'Invalid email format' ).not.toBeTruthy();
     });
 
