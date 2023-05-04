@@ -29,9 +29,9 @@ The following test scenarios are currently included in this demo:
 
 - Verify that the RainApp homepage loads successfully
 - Verify that the user can navigate to the About, Careers, Blog and Support pages from the homepage
-- Verify that the user can click on Book a Demo and Employers Access buttons
-- Verify that the user can sign up to the blog using valid and invalid data
-
+- Verify that the user can't sign up to the blog without checking the newsletter checkbox
+- Verify that the user can sign up to the blog with valid email address
+- Verify that the user can't sign up to the blog with invalid email address
 
 ## License
 
