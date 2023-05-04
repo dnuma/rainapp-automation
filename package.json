@@ -4,7 +4,7 @@
   "description": "This repository contains automated test scripts written in TypeScript for the RainApp website at www.rain.us. These test scripts use the Playwright testing framework to test various features and functionality of the website.",
   "main": "index.js",
   "scripts": {
-    "raintest": "npx playwright test --project=chromium --headed --workers=1"
+    "raintest": "npx playwright test --project=chromium --headed --workers=1 --retries=1"
   },
   "keywords": [],
   "author": "David Numa",

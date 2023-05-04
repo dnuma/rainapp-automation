@@ -8,7 +8,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@config/*": ["src/lib/config/*"],
+      "@data/*": ["src/lib/data/*"],
       "@interfaces/*": ["src/lib/interfaces/*"],
       "@pages/*": ["src/lib/pages/*"],
       "@tests/*": ["src/tests/*"],
