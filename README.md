@@ -8,7 +8,7 @@ To run the test scripts, you will need to have Node.js and the npm package manag
 
 Once you have Node.js installed, you can clone this repository to your local machine using Git. Open a terminal window and enter the following command:
 
-git clone https://github.com/dnuma/rainapp-automation.git
+`git clone https://github.com/dnuma/rainapp-automation.git`
 
 Once you have cloned the repository, navigate to the project directory and install the required dependencies using npm:
 
@@ -35,4 +35,4 @@ The following test scenarios are currently included in this demo:
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License.
