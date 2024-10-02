@@ -31,3 +31,4 @@ export const EMAIL = {
 export const TITLES = {
   HOME: 'Earned Wage Access App | Rain Instant Pay | Get Paid Daily',
 }
+
